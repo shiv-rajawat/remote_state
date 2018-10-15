@@ -1,0 +1,13 @@
+pipeline {
+  agent any
+
+  stages {
+    stage('Initial setup for ELK') {
+        steps {
+
+          sh 'terraform init'
+          sh 'terraform apply -auto-approve'
+        }
+      }
+    }
+  }
