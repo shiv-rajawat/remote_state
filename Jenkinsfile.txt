@@ -4,9 +4,9 @@ pipeline {
   stages {
     stage('Initial setup for ELK') {
         steps {
-	    dir("scripts"){
-          	sh "init.sh"
-		  }
+	    
+          	sh "terraform init"
+		sh "terraform apply -auto-approve"
         }
       }
     }
