@@ -4,9 +4,10 @@ pipeline {
   stages {
     stage('Initial setup for ELK') {
         steps {
-
+	    dir(scripts){
           script{
-			run("init")
+			bash init.sh
+		  }
 		  }
         }
       }
