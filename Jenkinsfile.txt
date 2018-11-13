@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Initial setup for ELK') {
         steps {
-	    	sh "cat '~/.aws/credentials'"
+	    	sh "cat  ~/.aws/credentials"
           	sh "terraform init"
 		sh "terraform apply -auto-approve"
         }
