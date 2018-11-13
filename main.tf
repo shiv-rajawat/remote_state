@@ -11,9 +11,6 @@ resource "aws_s3_bucket" "terraform-state-storage-temp" {
     versioning {
       enabled = true
     }
-    lifecycle {
-      prevent_destroy = true
-    }
 }
 
 # create a dynamodb table for locking the state file
