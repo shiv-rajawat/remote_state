@@ -6,7 +6,7 @@ provider "aws" {
 
 # create an S3 bucket to store the state file in
 
-resource "aws_s3_bucket" "terraform-state-storage" {
+resource "aws_s3_bucket" "terraform-state-storage-temp" {
     bucket = "shiv-terraform-remote-state-bucket"
     versioning {
       enabled = true
@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "terraform-state-storage" {
 }
 
 # create a dynamodb table for locking the state file
-resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
+resource "aws_dynamodb_table" "dynamodb-terraform-state-lock-temp" {
   name = "shiv-terraform-state-lock"
   hash_key = "LockID"
   read_capacity = 20
