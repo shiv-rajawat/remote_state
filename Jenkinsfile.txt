@@ -1,14 +1,16 @@
 pipeline {
   agent any
+  environment {
+        AWS_ACCESS_KEY_ID = credentials('neu-aws-secret-key-id')
+        AWS_SECRET_ACCESS_KEY = credentials('neu-aws-secret-access-key')
+    }
   stages {
     stage('Initial setup for ELK') {
         steps {
 	    	sh "aws s3 ls"
           	sh "terraform init"
 		sh "terraform apply -auto-approve"
-		sh "terraform destroy -auto-approve"		
-		
-        }
+	}
       }
     }
   }
