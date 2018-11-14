@@ -9,7 +9,7 @@ pipeline {
         steps {
 	    	
           	sh "terraform init"
-		sh "terraform apply -var "access_key=$AWS_ACCESS_KEY_ID" -var "secret_key=$AWS_SECRET_ACCESS_KEY" -auto-approve"
+		sh 'terraform apply -var "access_key=$AWS_ACCESS_KEY_ID" -var "secret_key=$AWS_SECRET_ACCESS_KEY" -auto-approve'
 		sh "aws s3 ls"
 	}
       }
